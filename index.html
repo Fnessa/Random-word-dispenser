@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random word dispenser</title>
+</head>
+<body>
+    <p id="word">
+        
+    </p>
+    
+    <!-- 'generate' button -->
+		<button class="button-1" role="button" onclick="generate()">Generate Word</button>
+
+    <script> 
+        var words = ["decir", "tener", "haber", "vivir", "hacer", "tomar", "poder", "vender", "salir", "venir"]
+        var length = words.length;
+        console.log(length);
+        var randomWord = words[Math.floor(Math.random() * 10)];
+        
+
+        function generate(){
+            if (randomWord != lastRandomWord){
+                document.getElementById("word").textContent=randomWord;    
+                var lastRandomWord = randomWord
+                randomWord = words[Math.floor(Math.random() * 10)];
+            }
+            else{
+                randomWord = words[Math.floor(Math.random() * 10)];
+                generate();
+            }
+        }
+
+    </script>
+</body>
+</html>
